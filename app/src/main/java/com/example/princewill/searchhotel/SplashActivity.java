@@ -15,6 +15,7 @@ public class SplashActivity extends AppCompatActivity implements Runnable {
         splashThread.start();
 
 
+
     }
 
     @Override
@@ -27,5 +28,6 @@ public class SplashActivity extends AppCompatActivity implements Runnable {
         }
         Intent intent = new Intent(SplashActivity.this,SignActivity.class);
         startActivity(intent);
+        finish();
     }
 }
