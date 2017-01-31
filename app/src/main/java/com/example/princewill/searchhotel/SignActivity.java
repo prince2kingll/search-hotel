@@ -28,6 +28,7 @@ import java.net.URLEncoder;
 
 public class SignActivity extends AppCompatActivity {
 
+    public static UserClass userclass;
     Button signin,signup;
     final Context context = this;
 
@@ -148,10 +149,13 @@ public class SignActivity extends AppCompatActivity {
             }
             @Override
             protected void onPostExecute(String avoid) {
-                Toast.makeText(context,avoid,Toast.LENGTH_LONG).show();
-                if(avoid.equals("successsuccess")){
-                    callHomeActivity();
-                }
+
+                //Toast.makeText(context,avoid,Toast.LENGTH_LONG).show();
+
+                String[] userInfo = avoid.split(" ");
+                userclass = new UserClass(userInfo);
+                callHomeActivity();
+
             }
             @Override
             protected void onProgressUpdate(Void... values) {
@@ -272,10 +276,10 @@ public class SignActivity extends AppCompatActivity {
             }
             @Override
             protected void onPostExecute(String avoid) {
-                Toast.makeText(context,avoid,Toast.LENGTH_LONG).show();
-                if(avoid.equals("successsuccess")){
-                    callHomeActivity();
-                }
+                //Toast.makeText(context,avoid,Toast.LENGTH_LONG).show();
+                String[] userInfo = avoid.split(" ");
+                userclass = new UserClass(userInfo);
+                callHomeActivity();
             }
             @Override
             protected void onProgressUpdate(Void... values) {
@@ -285,8 +289,9 @@ public class SignActivity extends AppCompatActivity {
     }
 
     public void callHomeActivity(){
-        Intent intent = new Intent(SignActivity.this,TestActivity.class);
+        Intent intent = new Intent(SignActivity.this,WorldActivity.class);
         startActivity(intent);
+        finish();
     }
 
 }

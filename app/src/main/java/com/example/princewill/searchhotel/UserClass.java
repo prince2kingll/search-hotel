@@ -17,8 +17,8 @@ public class UserClass {
     {
 
         setUsername(user[0]);
-        setEmail(user[1]);
-        setPassword(user[2]);
+        setEmail(user[2]);
+        setPassword(user[1]);
         setFirstname(user[3]);
         setLastname(user[4]);
         setCountry(user[5]);
