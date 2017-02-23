@@ -5,7 +5,7 @@ package com.example.princewill.searchhotel;
  */
 
 public class UserClass {
-    private String username;
+    private static String username;
     private String email;
     private String password;
     private String firstname;
@@ -28,12 +28,12 @@ public class UserClass {
 
 
 
-    public String getUsername() {
+    public static String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public static void setUsername(String usernam) {
+        username = usernam;
     }
 
     public String getEmail() {

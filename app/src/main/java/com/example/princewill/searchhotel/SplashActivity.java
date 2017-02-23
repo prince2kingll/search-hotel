@@ -14,8 +14,6 @@ public class SplashActivity extends AppCompatActivity implements Runnable {
         Thread splashThread = new Thread(this);
         splashThread.start();
 
-
-
     }
 
     @Override

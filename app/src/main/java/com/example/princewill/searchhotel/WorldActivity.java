@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class WorldActivity extends AppCompatActivity {
 
@@ -23,7 +24,6 @@ public class WorldActivity extends AppCompatActivity {
 
     private LocationManager locationManager;
     private LocationListener locationListener;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,28 +44,21 @@ public class WorldActivity extends AppCompatActivity {
         });
 
         gpsDisplay = (TextView) findViewById(R.id.textView_gps);
+
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-
-                gpsDisplay.setText("\n "+location.getLatitude()+" "+location.getLongitude());
-
+                Toast.makeText(WorldActivity.this,"\n "+location.getLatitude()+" "+location.getLongitude(),Toast.LENGTH_LONG).show();
             }
-
             @Override
             public void onStatusChanged(String provider, int status, Bundle extras) {
-
             }
-
             @Override
             public void onProviderEnabled(String provider) {
-
             }
-
             @Override
             public void onProviderDisabled(String provider) {
-
                 Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
                 startActivity(intent);
             }
@@ -90,12 +83,7 @@ public class WorldActivity extends AppCompatActivity {
     }
 
     private void configureButton() {
-        getGPS.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                locationManager.requestLocationUpdates("gps", 5000, 0, locationListener);
-            }
-        });
+        locationManager.requestLocationUpdates("gps", 5000, 0, locationListener);
     }
 
 

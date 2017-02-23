@@ -43,6 +43,8 @@ public class SignActivity extends AppCompatActivity {
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                signin.setVisibility(View.GONE);
+                signup.setVisibility(View.GONE);
                 LoginDialog ld=new LoginDialog(SignActivity.this);
                 ld.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
                 ld.show();
@@ -52,6 +54,8 @@ public class SignActivity extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                signin.setVisibility(View.GONE);
+                signup.setVisibility(View.GONE);
                 SignupDialog sd=new SignupDialog(SignActivity.this);
                 sd.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
                 sd.show();
@@ -88,6 +92,8 @@ public class SignActivity extends AppCompatActivity {
                 case R.id.button_login:
                     LoginBackground loginBackground = new LoginBackground();
                     loginBackground.execute("login",Username.getText().toString(),Password.getText().toString());
+                    signin.setVisibility(View.VISIBLE);
+                    signup.setVisibility(View.VISIBLE);
                     dismiss();
                     break;
                 default:
@@ -127,21 +133,24 @@ public class SignActivity extends AppCompatActivity {
                         InputStream inputStream = httpsURLConnection.getInputStream();
                         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"iso-8859-1"));
                         String result="";
-                        String line="";
-                        while((line = bufferedReader.readLine())!=null){
+                        String line;
+                        while((line = bufferedReader.readLine())!= null){
                             result += line;
                         }
+
                         bufferedReader.close();
                         inputStream.close();
                         httpsURLConnection.disconnect();
+
                         return result;
+
                     } catch (MalformedURLException e) {
-                        return "mal"+e.toString();
+                        return "code:444 mal"+e.toString();
                     } catch (IOException e) {
-                        return "io"+e.toString();
+                        return "code:444 io"+e.toString();
                     }
                 }
-                return "failed";
+                return "code:444 failed";
             }
             @Override
             protected void onPreExecute() {
@@ -149,13 +158,13 @@ public class SignActivity extends AppCompatActivity {
             }
             @Override
             protected void onPostExecute(String avoid) {
-
-                //Toast.makeText(context,avoid,Toast.LENGTH_LONG).show();
-
+            if(!avoid.contains("code:444")){
                 String[] userInfo = avoid.split(" ");
                 userclass = new UserClass(userInfo);
                 callHomeActivity();
-
+            }else{
+                Toast.makeText(context,avoid,Toast.LENGTH_LONG).show();
+            }
             }
             @Override
             protected void onProgressUpdate(Void... values) {
@@ -205,11 +214,12 @@ public class SignActivity extends AppCompatActivity {
 
             switch(view.getId()){
                 case R.id.button_signup:
-
+                    signin.setVisibility(View.VISIBLE);
+                    signup.setVisibility(View.VISIBLE);
                     //SEND INFO TO THE SERVER DATABASE TO STORE
                     SignUpBackground signUpBackground = new SignUpBackground();
                     signUpBackground.execute("signup",Username.getText().toString(),Email.getText().toString(),Password.getText().toString(),FirstName.getText().toString(),LastName.getText().toString(),Country.getText().toString(),State.getText().toString());
-
+                    dismiss();
                     break;
                 default:
                     break;
@@ -263,12 +273,12 @@ public class SignActivity extends AppCompatActivity {
                         httpsURLConnection.disconnect();
                         return result;
                     } catch (MalformedURLException e) {
-                        return "mal"+e.toString();
+                        return "code:444 mal"+e.toString();
                     } catch (IOException e) {
-                        return "io"+e.toString();
+                        return "code:444 io"+e.toString();
                     }
                 }
-                return "failed";
+                return "code:444 failed";
             }
             @Override
             protected void onPreExecute() {
@@ -276,10 +286,12 @@ public class SignActivity extends AppCompatActivity {
             }
             @Override
             protected void onPostExecute(String avoid) {
-                //Toast.makeText(context,avoid,Toast.LENGTH_LONG).show();
+                if(!avoid.contains("code:444")){
                 String[] userInfo = avoid.split(" ");
                 userclass = new UserClass(userInfo);
                 callHomeActivity();
+                }else
+                Toast.makeText(context,avoid,Toast.LENGTH_LONG).show();
             }
             @Override
             protected void onProgressUpdate(Void... values) {
