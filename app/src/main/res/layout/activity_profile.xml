@@ -40,7 +40,6 @@
                 android:id="@+id/iv_hotelimage"
                 android:layout_width="250dp"
                 android:layout_height="250dp"
-                android:background="@drawable/gradient"
                 app:civ_border_width="2dp"
                 app:civ_border_color="#FF000000"/>
 
@@ -59,6 +58,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/rb_hotelrating"
         style="@style/Widget.AppCompat.RatingBar"
+        android:background="@drawable/gradient"
         android:isIndicator="false"
         android:layout_margin="5dp" />
 
