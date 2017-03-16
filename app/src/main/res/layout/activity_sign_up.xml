@@ -104,26 +104,6 @@
                 android:id="@+id/textView10"
                 android:textSize="18sp" />
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:ems="10"
-                android:textColor="@android:color/white"
-                android:id="@+id/editText_country"
-                android:hint="@string/country"
-                android:textColorHint="#FFFFFF"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:ems="10"
-                android:textColor="@android:color/white"
-                android:id="@+id/editText_state"
-                android:hint="@string/state"
-                android:textColorHint="#FFFFFF"/>
-
             <Button
                 android:text="Sign Up"
                 android:layout_width="wrap_content"

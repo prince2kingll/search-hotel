@@ -10,14 +10,31 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.princewill.searchhotel.SplashActivity"
-    android:background="@drawable/splash">
+    android:background="@drawable/transitioncolor"
+    android:scaleX="2">
 
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/search_hotel"
+        app:srcCompat="@drawable/splash"
+        android:id="@+id/iv_logo"
         android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:scaleX=".5" />
+
+    <TextView
+        android:text="LOADING..."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_loading"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:textStyle="normal|bold"
+        android:textAllCaps="false"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/imageView" />
+        android:scaleX=".5" />
+
 </RelativeLayout>

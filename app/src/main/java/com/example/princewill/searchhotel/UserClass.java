@@ -10,20 +10,14 @@ public class UserClass {
     private String password;
     private String firstname;
     private String lastname;
-    private String country;
-    private String state;
 
     public UserClass(String user[])
     {
-
         setUsername(user[0]);
         setEmail(user[2]);
         setPassword(user[1]);
         setFirstname(user[3]);
         setLastname(user[4]);
-        setCountry(user[5]);
-        setState(user[6]);
-
     }
 
 
@@ -66,21 +60,5 @@ public class UserClass {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
     }
 }

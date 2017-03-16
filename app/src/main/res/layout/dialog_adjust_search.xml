@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/transparent"
+    android:gravity="center_horizontal"
+    android:layout_gravity="center_horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:gravity="center_horizontal"
+        android:textColor="@android:color/white"
+        android:textStyle="normal|bold"
+        android:text="Search Range" />
+
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/sb_range"
+                android:progress="100" />
+
+            <TextView
+                android:text="Rating Range"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView5"
+                android:textStyle="normal|bold"
+                android:gravity="center_horizontal"
+                android:textColor="@android:color/white" />
+
+            <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sb_rating"
+                android:max="5" />
+
+            <TextView
+        android:text="Only Show:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView8"
+        android:textStyle="normal|bold"
+        android:gravity="center_horizontal"
+        android:textColor="@android:color/white" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <CheckBox
+                    android:text="Hotel"
+                    android:textColor="@android:color/white"
+                    android:textStyle="normal|bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cb_hotel"
+                    android:checked="true" />
+
+                <CheckBox
+                    android:text="Hostel"
+                    android:textColor="@android:color/white"
+                    android:textStyle="normal|bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cb_hostel"
+                    android:checked="true" />
+
+                <CheckBox
+                    android:text="Motel"
+                    android:textColor="@android:color/white"
+                    android:textStyle="normal|bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cb_motel"
+                    android:checked="true" />
+
+                <CheckBox
+                    android:text="Apartment"
+                    android:textColor="@android:color/white"
+                    android:textStyle="normal|bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cb_apartment"
+                    android:checked="true" />
+
+            </LinearLayout>
+
+            <TextView
+        android:text="  "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView9" />
+
+    <Button
+        android:text="Done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_done"
+        android:layout_gravity="right"
+        android:background="@drawable/gradient"
+        android:textColor="@color/white"
+        android:layout_margin="4dp"/>
+</LinearLayout>
